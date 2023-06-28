@@ -1,0 +1,265 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="assets/css/panel_calculator.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/price_repost.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <!-- <script type="text/javascript" src="assets/js/cost_calculation.js" ></script> -->
+        <script type="text/javascript" src="assets/js/improve_code.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="solar-calculator">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form action="" method="post" name="frm" id="frm" autocomplete="off">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <h3 class="section-heading">1. Choose any one of the following</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-field">
+                                    <div class="form-group">
+                                        <div class="label_style mb-2">
+                                            <!--<input type="hidden" name="checkbox_fill_one" value="0">-->
+                                            <input type="radio" name="calculation_type" class="chk" id="total_roof_area" value="1" required="" onclick="hideShowFields(this)">
+                                            <label for="total_roof_area">Total Roof Top Area</label>
+                                            <input type="radio" name="calculation_type" class="chk" id="panel_capacity" value="2" onclick="hideShowFields(this)">
+                                            <label for="panel_capacity">Solar Panel Capacity you want to install</label>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input type="text" name="roof_area_txt" required="" id="roof_area_txt" class="form-control chk-grp roof_area_type numericval" maxlength="10" value="" style="">
+                                            
+                                            <div class="input-group-append">
+                                                <span class="input-group-text input-group-addon chk-grp roof_area_type" style="">
+                                                    <input id="sq_m_rad_btn" type="radio" name="roof_area_type" class="radio_gp_id roof_area_type " value="2" checked="checked">
+                                                    Sq. m. &nbsp;
+                                                    <input id="sq_f_rad_btn" type="radio" name="roof_area_type" class="radio_gp_id roof_area_type " value="1">
+                                                    Sq. Feet
+                                                    
+                                                </span>
+                                                <span class="roof_area_error" >Please Enter Numeric Value</span>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group txt_option txt_option2" style="display: none;">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            
+                                            <input type="text" name="capacity_txt" required="" id="capacity_txt" class="form-control chk-grp kw_capacity numericval " maxlength="11" size="11" value="" disabled="disabled" style="display: none;">
+                                            
+                                            <div class="input-group-append"> <span class="input-group-text">kW</span> </div>
+                                            <span class="kw_capacity_error" >Please Enter Numeric Value</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="form-group">
+                                <div class="row">
+                                    <label class="col-md-12">
+                                        <hr>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h3 class="section-heading">2. Select State and Customer Category</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">   
+                                    <div class="form-group">
+                                        <select name="state" required="required" id="state" class="form-control">
+                                            <option value="">Select State</option>
+                                            <option value="JAMMU and KASHMIR">JAMMU and KASHMIR</option>
+                                             <option value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                                             <option value="PUNJAB">PUNJAB</option>
+                                            <option value="HARYANA">HARYANA</option>
+                                            <option value="UTTARAKHAND">UTTARAKHAND</option>
+                                            <option value="CHANDIGARH">CHANDIGARH</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <label class="col-md-12">
+                                        <hr>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h3 class="section-heading">3. What is your average Electricity Cost? :</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input type="text" name="electricity_txt" required="" id="electricity_txt" class="form-control numericval" size="10" maxlength="5" value="">
+                                            <!-- <input name="number"  name="electricity_txt" required="" id="electricity_txt" class="form-control " size="10" maxlength="5" value="" onkeyup="if (/[^0-9\.]/g.test(this.value)) this.value = this.value.replace(/[^0-9\.]/g,'')"> -->
+                                            <div class="input-group-append"> <span class="input-group-text">Rs. / kWh</span> </div>
+                                            <span class="electricity_unit_error" >Please Enter Numeric Value</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- form-horizontal  -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group text-center"> 
+                                    <br>			
+                                    <!-- <button type="submit" id="butnSubmit" class="btn btn-primary">Calculate</button>				 -->
+                                     <button type="submit" id="butnSubmit" class="btn btn-primary" onclick="calculateData()">Calculate</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Model Popup -->
+        <div class="modal fade" tabindex="-1" id="calculator_modal" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Solar Rooftop Calculator</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div>
+                    Average Global Horizontal Irradiation (GHI) in <label id="output_state" class="output">UTTARAKHAND</label> state <br>
+                    1kWp solar rooftop plant will generate on average over the year <label id="output_generate" class="output">3.7</label> kWh of electricity per day (considering 5.5 sunshine hours)<br>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <br>
+                      <div id="result">
+                        <table class="tbl output_tbl" cellspacing="5" cellpadding="5" border="0">
+                          <tbody>
+                            <tr>
+                              <td class="column_1"><b>1. Size of Power Plant </b></td>
+                              <td class="right_div_column_2"></td>
+                            </tr>
+                            <tr>
+                              <td class="column_1">
+                                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Feasible Plant size as per your <label id="output_choosen" class="output"></label> <label id="output_budget_additionally" class="output"></label>:
+                              </td>
+                              <td class="right_div_column_2">
+                                <label id="output_size" class="output"><span>3.4</span></label> kW
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="column_1"><b>2. Cost of the Plant :</b></td>
+                              <td class="right_div_column_2"></td>
+                            </tr>
+                            <tr>
+                              <td class="column_1">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;MNRE current Benchmark Cost :</td>
+                              <td class="right_div_column_2">
+                                Rs. <label id="bench_cost" class="output">60000</label> / kW
+                              </td>
+                            </tr>
+                            <tr style="opacity: 0; height: 0; display:none;">
+                              <td class="column_1">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Without subsidy <span class="assume">(Based on current MNRE benchmark)</span> :</td>
+                              <td class="right_div_column_2">
+                                Rs. <label id="output_without_subsidy" class="output"></label>
+                              </td>
+                            </tr>
+                            <tr style="opacity: 0; height: 0; display: none;">
+                              <td class="column_1">
+                                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;With subsidy <label id="output_subsidy_heading" class="output"></label> % <span class="assume">(Based on current MNRE benchmark)</span> :
+                              </td>
+                              <td class="right_div_column_2">
+                                Rs. <label id="output_subsidy" class="output"></label>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="column_1"><b>3. Total Electricity Generation from Solar Plant :</b></td>
+                              <td class="right_div_column_2"></td>
+                            </tr>
+                            <tr>
+                              <td class="column_1">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Annual :</td>
+                              <td class="right_div_column_2">
+                                <label id="output_electricity_annual" class="output">4250</label> kWh
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="column_1">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Life-Time (25 years):</td>
+                              <td class="right_div_column_2">
+                                <label id="output_electricity_lifetime" class="output">106250</label> kWh
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="column_1"><b>4) Financial Savings :</b></td>
+                              <td class="right_div_column_2"></td>
+                            </tr>
+                            <tr>
+                              <td class="column_1">
+                                <b>a) Tariff @ Rs. <label id="output_electricity_unit" class="output"></label> / kWh (for top slab of traffic) - No increase assumed over 25 years:</b>
+                              </td>
+                              <td class="right_div_column_2"></td>
+                            </tr>
+                            <tr>
+                              <td class="column_1">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Monthly:</td>
+                              <td class="right_div_column_2">
+                                Rs. <label id="output_saving_monthly" class="output">2128</label>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="column_1">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Annually:</td>
+                              <td class="right_div_column_2">
+                                Rs. <label id="output_saving_annually" class="output">25530</label>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="column_1">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Life-Time (25 years):</td>
+                              <td class="right_div_column_2">
+                                Rs. <label id="output_saving_lifetime" class="output">638250</label>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <br>
+                        <div style="margin:auto; border:1px solid #dee2e6; padding:10px; background-color: #f1f1f1;">
+                          <table class="tbl" width="100%" cellpadding="5">
+                            <tbody>
+                              <tr>
+                                <td class="column_1">Carbon dioxide emissions mitigated is</td>
+                                <td class="column_2">
+                                  <label id="output_co2">255000</label> tonnes.
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="column_1">This installation will be equivalent to planting</td>
+                                <td class="column_2">
+                                  <label id="output_tree">129</label> Teak trees over the lifetime. <span class="assume">(Data from IISc)</span> <br>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <br>
+                          <p><strong>Disclaimer:</strong> The calculation is indicative in nature. Generation may vary from location to location.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div>
+          
+    </body>
+</html>
