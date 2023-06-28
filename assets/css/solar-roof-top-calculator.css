@@ -1,0 +1,217 @@
+.solar-calculator {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 25px;
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 4px;
+}
+
+.solar-cal-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.solar-cal-row #frm {
+  width: 100%;
+}
+
+.solar-full-width {
+  width: 100%;
+}
+
+.solar-half-cnt-width {
+  width: calc(50% - 5px);
+}
+
+div#errorValidation {
+  color: #f00;
+}
+
+input#panel_capacity {
+  margin-left: 5rem;
+}
+
+/* css for error */
+label.errorTxt:not(:empty) {
+  color: #f00;
+  width: 100%;
+  padding-left: 10px;
+}
+
+input.error {
+  border: 1px solid red  !important;
+}
+
+select.error {
+  border: 1px solid red  !important;
+}
+
+input:focus{
+  outline: none;
+}
+.container {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  opacity: 0.9;
+  background: #222;
+  z-index: 40000;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  animation-name: fadeIn_Container;
+  animation-duration: 1s;
+}
+
+.modal {
+  top: 10vh;
+  max-width: 768px;
+  height: 80vh;
+  left: 10vh;
+  right: 10vh;
+  display: none;
+  min-width: 250px;
+  position: fixed;
+  z-index: 40001;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #000;
+  animation-name: fadeIn_Modal;
+  animation-duration: 0.8s;
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+}
+
+.modal-header {
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: 2px solid #ccc;
+}
+
+.modal-header h2 {
+  padding: 0;
+  display: inline-block;
+  margin: 0px calc(1em + 10px) 10px 0px;
+}
+
+.modal-header a {
+  position: absolute;
+  right: 10px;
+  text-decoration: none;
+  color: #aaa;
+  box-sizing: modal-content-box;
+  width: 1em;
+  height: 1em;
+  padding: .25em .25em;
+  color: #000;
+  background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+  border: 0;
+  border-radius: .25rem;
+  opacity: .5;
+}
+
+.modal-content {
+  padding: 10px 0;
+}
+
+
+.modal-header {
+  width: 100%;
+}
+
+.modal-header a {
+  margin-right: 10px;
+}
+
+/****ANIMATIONS****/
+
+@keyframes fadeIn_Modal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn_Container {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.9;
+  }
+}
+
+
+.form-horizontal {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+#calculation_type, #state, #electricity_txt, #calculation_type, #capacity_txt ,#roof_area_txt{
+  background-color: #fff;
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 3px;
+  padding: 10px 6px;
+}
+
+#calculation_type:focus-visible, #state:focus-visible, #electricity_txt:focus-visible, #calculation_type:focus-visible, #capacity_txt:focus-visible {
+  outline-width: 0;
+  border-width: 2px;
+}
+
+.solar-calculator input#electricity_txt::placeholder ,#calculation_type, #state, #electricity_txt, #calculation_type, #capacity_txt{
+  color: rgb(0, 0, 0);
+}
+
+.solar-capacity,.roof_area_unit {
+  display: flex;
+}
+
+.solar-capacity_unit {
+  padding: 10px 12px;
+  background-color: #ddd;
+  font-weight: 600;
+}
+.input-group-append{
+display: inline-flex;
+align-items: center;
+width: 200px;
+}
+
+#butnSubmit {
+  background: #e31e24 !important;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 10px;
+  text-transform: capitalize;
+  width: calc(50% - 10px);
+}
+
+@media screen and (min-width:768px) {
+  .modal {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width:475px) {
+  .solar-half-cnt-width {
+    width: 100%;
+  }
+}

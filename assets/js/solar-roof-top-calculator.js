@@ -15,7 +15,9 @@ function hideShowFields(t) {
 }
 
 function calculateData() {
-    $('#calculator_modal').modal('show');
+    // $('#calculator_modal').modal('show');
+    $("#model_container").css("display","block");
+    $("#calculator_modal").css("display","block");
     const totDaysMonth = 25;
     const eleGenPerDay = 3.7;
     const plantCost = 60000;
@@ -84,12 +86,9 @@ $(document).ready(function() {
                 required:true,
                 number: true,
                 depends:check_roof_select(),
-               
-                
             } ,
             capacity_txt: 
             {
-               
                 required:true,
                 number: true,
                 depends:check_roof_select(),
@@ -100,17 +99,28 @@ $(document).ready(function() {
            },
         },
         messages: {
-            roof_area_txt: 'Please Enter Numeric Value',
-            capacity_txt: 'Please Enter Numeric Value',
-            electricity_txt: 'Please Enter Numeric Value',
+            roof_area_txt:
+            {
+                required:'Please Enter valid Value'
+            },
+            capacity_txt: {
+                required:'Please Enter valid Value'
+            }, 
+            electricity_txt:{
+                required:'Please Enter valid Value'
+            } 
          },
          errorElement : 'label',
          errorLabelContainer: '.errorTxt',
-        //  errorPlacement: function(error, element) {
-        //  },
+        
          submitHandler: function(form) {
             calculateData();
          }
      });
     
+     $(".cancel").click(function(){
+        $("#model_container").fadeOut();
+        $("#calculator_modal").fadeOut();
+    });
+
 });
