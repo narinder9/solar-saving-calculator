@@ -1,16 +1,17 @@
 function hideShowFields(t) {
-    $(".chk-grp").val("").attr("disabled", true).hide();
+    // $(".chk-grp").val("").attr("disabled", true).hide();
     $(".txt_option").hide();
-    
-    if (t.id === "total_roof_area" && t.checked) {
+    var panel_based_on=$('#calculation_type').val();
+    if (panel_based_on === "total_roof_area" && panel_based_on) {
         $(".txt_option1").show();
         $(".roof_area_type").show().attr("disabled", false);
         $("#panel_capacity").prop("checked", false);
-    } else if (t.id === "panel_capacity" && t.checked) {
+    } else if (panel_based_on === "panel_capacity" && panel_based_on) {
         $(".txt_option2").show();
         $(".kw_capacity").show().attr("disabled", false);
         $("#total_roof_area, #roof_area_type").prop("checked", false);
     }
+    console.log($('#calculation_type').val());
 }
 
 function calculateData() {
