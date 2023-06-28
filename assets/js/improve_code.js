@@ -85,7 +85,7 @@ $(document).ready(function() {
             } ,
             capacity_txt: 
             {
-                // required:'#panel_capacity:checked',
+               
                 required:true,
                 number: true,
                 depends:check_roof_select(),
@@ -100,7 +100,10 @@ $(document).ready(function() {
             capacity_txt: 'Please Enter Numeric Value',
             electricity_txt: 'Please Enter Numeric Value',
          },
-     
+         errorElement : 'label',
+         errorLabelContainer: '.errorTxt',
+        //  errorPlacement: function(error, element) {
+        //  },
          submitHandler: function(form) {
             calculateData();
          }

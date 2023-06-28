@@ -42,7 +42,7 @@
 input#panel_capacity {
     margin-left: 5rem;
 }
-label.error
+label.errorTxt
 {
   color: #f00;
   width:100%;

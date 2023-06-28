@@ -30,6 +30,7 @@
                                               <option value="panel_capacity">Solar Panel Capacity you want to install</option>
                                           </select>
                                         </div>
+                                        <label id="calculation_type-error" class="errorTxt" for="calculation_type"></label>
                                     </div>
                                 </div>
                             </div>
@@ -37,8 +38,9 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <div class="input-group">
+                                         
                                             <input type="text" name="roof_area_txt" required="" id="roof_area_txt" class="form-control chk-grp roof_area_type numericval" maxlength="10" value="" disabled="disabled" style="display: none;">
-                                            
+                                           
                                             <div class="input-group-append">
                                                 <span class="input-group-text input-group-addon chk-grp roof_area_type" style="">
                                                     <input id="sq_m_rad_btn" type="radio" name="roof_area_type" class="radio_gp_id roof_area_type " value="2" checked="checked">
@@ -49,9 +51,9 @@
                                                 </span>
                                                 </div>
                                               
-                                              
-                                        </div>
-                                        <!-- <label id="roof_area_txt-error" class="error" for="roof_area_txt">Please Enter Numeric Value</label> -->
+                                      </div>
+                                        <!-- <span id="roof_area_txt-error" class="error" for="roof_area_txt"></span> -->
+                                        <label id="roof_area_txt-error" class="errorTxt" for="roof_area_txt"></label>
                                     </div>
                                 </div>
                             </div>
@@ -64,23 +66,13 @@
                                             
                                             <div class="input-group-append"> <span class="input-group-text">kW</span> </div>
                                              </div>
-                                             <!-- <label id="capacity_txt-error" class="error" for="capacity_txt">Please Enter Numeric Value</label> -->
+                                             <label id="capacity_txt-error" class="errorTxt" for="capacity_txt"></label>
                                     </div>
                                 </div>
                             </div>
                         
-                            <div class="form-group">
-                                <div class="row">
-                                    <label class="col-md-12">
-                                        <hr>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <h3 class="section-heading">2. Select State and Customer Category</h3>
-                            </div>
                             <div class="row">
-                                <div class="col-md-12 col-sm-12 col-xs-12">   
+                                <div class="col-md-6 col-sm-6 col-xs-6">   
                                     <div class="form-group">
                                         <select name="state" required="required" id="state" class="form-control">
                                             <option value="">Select State</option>
@@ -92,34 +84,18 @@
                                             <option value="CHANDIGARH">CHANDIGARH</option>
                                         </select>
                                     </div>
+                                    <label id="state-error" class="errorTxt" for="state"></label>
                                 </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <label class="col-md-12">
-                                        <hr>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <h3 class="section-heading">3. What is your average Electricity Cost? :</h3>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
+                           
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input type="text" name="electricity_txt" required="" id="electricity_txt" class="form-control numericval" size="10" maxlength="5" value="">
-                                            <!-- <input name="number"  name="electricity_txt" required="" id="electricity_txt" class="form-control " size="10" maxlength="5" value="" onkeyup="if (/[^0-9\.]/g.test(this.value)) this.value = this.value.replace(/[^0-9\.]/g,'')"> -->
-                                            <div class="input-group-append"> <span class="input-group-text">Rs. / kWh</span> </div>
-                                             </div>
-                                             <!-- <label id="electricity_txt-error" class="error" for="electricity_txt">Please Enter Numeric Value</label> -->
-                                    </div>
+                                            <input type="text" placeholder="Average Electricity Cost Rs./ kWh" name="electricity_txt" required="" id="electricity_txt" class="form-control numericval" size="10" maxlength="5" value="">
+                                            <label id="electricity_txt-error" class="errorTxt" for="electricity_txt"></label>
+                                          </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- form-horizontal  -->
-                        <div class="row">
+                       </div>
                             <div class="col-md-12">
                                 <div class="form-group text-center"> 
                                     <br>			
