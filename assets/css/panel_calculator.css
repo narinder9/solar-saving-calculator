@@ -42,7 +42,7 @@
 input#panel_capacity {
     margin-left: 5rem;
 }
-.error
+label.error
 {
   color: #f00;
   width:100%;
@@ -50,14 +50,10 @@ input#panel_capacity {
   padding-left: 10px;
 }
 
-
-input.error
-
-{  border-color:Red;
-
-border-style:solid;
-
-border-width:1px; } 
-.valid{
-  border-color:green;
+input.error {
+  border: 1px solid red;
+}
+select.error
+{
+  border: 1px solid red;
 }
