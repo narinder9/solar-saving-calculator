@@ -19,7 +19,7 @@
                 <div class="form-group">
                   <div class="label_style mb-2">
 
-                    <select name="calculation_type" required="required" id="calculation_type" class="form-control"
+                    <select name="calculation_type" id="calculation_type" class="form-control"
                       onclick="hideShowFields(this)">
                                               <option value="">Choose any one of the following</option>
                                               <option value="total_roof_area">Total Roof Top Area</option>
@@ -35,12 +35,12 @@
                 <div class="form-group">
                   <div class="input-group roof_area_unit">
 
-                    <input type="text" name="roof_area_txt" required="" id="roof_area_txt"
+                    <input type="text" name="roof_area_txt" id="roof_area_txt"
                       class="form-control chk-grp roof_area_type numericval" maxlength="10" value="" disabled="disabled"
                       style="display: none;">
 
                     <div class="input-group-append">
-                      <span class="input-group-text input-group-addon chk-grp roof_area_type" style="">
+                      <span class="input-group-text input-group-addon chk-grp roof_area_type" >
                         <input id="sq_m_rad_btn" type="radio" name="roof_area_type" class="radio_gp_id roof_area_type "
                           value="2" checked="checked">
                         Sq. m. &nbsp;
@@ -52,7 +52,7 @@
                     </div>
 
                   </div>
-                  <!-- <span id="roof_area_txt-error" class="error" for="roof_area_txt"></span> -->
+                  
                   <label id="roof_area_txt-error" class="errorTxt" for="roof_area_txt"></label>
                 </div>
               </div>
@@ -62,7 +62,7 @@
                 <div class="form-group">
                   <div class="input-group solar-capacity">
 
-                    <input type="text" name="capacity_txt" required="" id="capacity_txt"
+                    <input type="text" name="capacity_txt" id="capacity_txt"
                       class="form-control chk-grp kw_capacity numericval " maxlength="11" size="11" value=""
                       disabled="disabled" style="display: none;">
 
@@ -93,7 +93,7 @@
                 <div class="form-group">
                   <div class="input-group">
                     <input type="text" placeholder="Average Electricity Cost Rs./ kWh" name="electricity_txt"
-                      required="" id="electricity_txt" class="form-control numericval" size="10" maxlength="5" value="">
+                       id="electricity_txt" class="form-control numericval" size="10" maxlength="5" value="">
                     <label id="electricity_txt-error" class="errorTxt" for="electricity_txt"></label>
                   </div>
                 </div>
@@ -130,7 +130,7 @@
         <div class="solar-full-width">
           <br>
           <div id="result">
-            <table class="tbl output_tbl" cellspacing="5" cellpadding="5" border="0">
+            <table class="tbl output_tbl" cellspacing="0" cellpadding="5" border="0">
               <tbody>
                 <tr>
                   <td class="column_1"><b>1. Size of Power Plant </b></td>
@@ -142,7 +142,7 @@
                       class="output"></label> <label id="output_budget_additionally" class="output"></label>:
                   </td>
                   <td class="right_div_column_2">
-                    <label id="output_size" class="output"><span>3.4</span></label> kW
+                    <label id="output_size" class="output"><span>3.4</span></label> KW
                   </td>
                 </tr>
                 <tr>
@@ -220,7 +220,7 @@
             </table>
             <br>
             <div style="margin:auto; border:1px solid #dee2e6; padding:10px; background-color: #f1f1f1;">
-              <table class="tbl" width="100%" cellpadding="5">
+              <table class="tbl" width="100%" cellpadding="5"  cellspacing="0">
                 <tbody>
                   <tr>
                     <td class="column_1">Carbon dioxide emissions mitigated is</td>
@@ -237,8 +237,7 @@
                   </tr>
                 </tbody>
               </table>
-              <br>
-              <p><strong>Disclaimer:</strong> The calculation is indicative in nature. Generation may vary from location
+              <p class="disclaimer"><strong>Disclaimer:</strong> The calculation is indicative in nature. Generation may vary from location
                 to location.</p>
             </div>
           </div>

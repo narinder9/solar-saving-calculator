@@ -14,11 +14,8 @@
   width: 100%;
 }
 
-.solar-cal-row #frm {
-  width: 100%;
-}
-
-.solar-full-width {
+.solar-cal-row #frm,
+#result .tbl.output_tbl,.solar-full-width{
   width: 100%;
 }
 
@@ -42,16 +39,13 @@ label.errorTxt:not(:empty) {
 }
 
 input.error {
-  border: 1px solid red  !important;
+  border: 1px solid red;
 }
 
 select.error {
-  border: 1px solid red  !important;
+  border: 1px solid red;
 }
 
-input:focus{
-  outline: none;
-}
 .container {
   display: none;
   width: 100%;
@@ -69,7 +63,7 @@ input:focus{
 
 .modal {
   top: 10vh;
-  max-width: 768px;
+  max-width: 900px;
   height: 80vh;
   left: 10vh;
   right: 10vh;
@@ -82,7 +76,7 @@ input:focus{
   box-shadow: 0px 0px 10px #000;
   animation-name: fadeIn_Modal;
   animation-duration: 0.8s;
-  padding: 10px;
+  padding: 20px;
   overflow-x: hidden;
   overflow-y: auto;
   outline: 0;
@@ -159,7 +153,7 @@ input:focus{
 }
 
 
-#calculation_type, #state, #electricity_txt, #calculation_type, #capacity_txt ,#roof_area_txt{
+#calculation_type, #state, #electricity_txt, #calculation_type, #capacity_txt {
   background-color: #fff;
   width: 100%;
   border: 1px solid #000;
@@ -176,7 +170,7 @@ input:focus{
   color: rgb(0, 0, 0);
 }
 
-.solar-capacity,.roof_area_unit {
+.solar-capacity {
   display: flex;
 }
 
@@ -184,11 +178,6 @@ input:focus{
   padding: 10px 12px;
   background-color: #ddd;
   font-weight: 600;
-}
-.input-group-append{
-display: inline-flex;
-align-items: center;
-width: 200px;
 }
 
 #butnSubmit {
@@ -203,8 +192,9 @@ width: 200px;
   width: calc(50% - 10px);
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:800px) {
   .modal {
+    width: 800px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -214,4 +204,28 @@ width: 200px;
   .solar-half-cnt-width {
     width: 100%;
   }
+}
+.modal td.column_2,td.modal .column_1{
+  width: 50%;
+}
+.modal td.column_1 {
+  background: #f1f1f1;
+  text-align: left;
+  vertical-align: top;
+}
+.modal td.right_div_column_2 ,.modal .column_2{
+  background: #e4e4e4;
+  text-align: left;
+  vertical-align: top;
+  width: 200px;
+  padding-left: 15px;
+}
+
+.modal #result .disclaimer{
+  margin: 0;
+  padding: 5px;
+
+}
+.modal .tbl{
+  border: 1px solid #e4e4e4;
 }

@@ -5,11 +5,11 @@ function hideShowFields(t) {
     if (panel_based_on === "total_roof_area" && panel_based_on) {
         $(".txt_option1").show();
         $(".roof_area_type").show().attr("disabled", false);
-        $("#panel_capacity").prop("checked", false);
+        // $("#panel_capacity").prop("checked", false);
     } else if (panel_based_on === "panel_capacity" && panel_based_on) {
         $(".txt_option2").show();
         $(".kw_capacity").show().attr("disabled", false);
-        $("#total_roof_area, #roof_area_type").prop("checked", false);
+        // $("#total_roof_area, #roof_area_type").prop("checked", false);
     }
  
 }
@@ -68,30 +68,52 @@ function calculateData() {
     $("#output_co2").text(Math.round(co2emisRed25Year));
 }
 
-const check_roof_select = function(target){
-    const panel_based_on = $('#calculation_type').val();
-    if (panel_based_on === "total_roof_area" || panel_based_on === "panel_capacity" ){
-       return true;
-    } 
-
-    return false;
-}
-
 $(document).ready(function() {
+
+    
+// const roof_area_select = function(target){
+//     const panel_based_on = $('#calculation_type').find(":selected").val();
+    
+//     console.log("a ="+panel_based_on);
+//     if (panel_based_on == "total_roof_area"){
+//        return true;
+//     } 
+
+//     return false;
+// }
+// const panel_capacity_select = function(target){
+//     const panel_based_on = $('#calculation_type').find(":selected").val();
+//     console.log("a ="+panel_based_on);
+//     if (panel_based_on == "panel_capacity" ){
+//        return true;
+//     } 
+
+//     return false;
+// }
 
     jQuery("#frm").validate({
      
         rules: {
+            // calculation_type:
+            // {
+            //     required:true,
+            // },
             roof_area_txt:{
                 required:true,
+            //     required:function(element) {
+            //         return $('#calculation_type').find(":selected").val() == 'total_roof_area';
+            //   },
                 number: true,
-                depends:check_roof_select(),
+                // depends:roof_area_select(),
             } ,
             capacity_txt: 
             {
                 required:true,
+            //     required:function(element) {
+            //         return $('#calculation_type').find(":selected").val() == 'panel_capacity';
+            //   },
                 number: true,
-                depends:check_roof_select(),
+                // depends:panel_capacity_select(),
             },
             electricity_txt: {
                required: true,
@@ -101,13 +123,13 @@ $(document).ready(function() {
         messages: {
             roof_area_txt:
             {
-                required:'Please Enter valid Value'
+                required:'Please enter valid value'
             },
             capacity_txt: {
-                required:'Please Enter valid Value'
+                required:'Please enter valid value'
             }, 
             electricity_txt:{
-                required:'Please Enter valid Value'
+                required:'Please enter valid value'
             } 
          },
          errorElement : 'label',
