@@ -29,14 +29,18 @@ function calculateData() {
     var co2emisRed25Year;
     var totTreePlant;
     
+    var panel_based_on=$('#calculation_type').val();
+    if (panel_based_on === "total_roof_area" && panel_based_on) {
+    
 
-    if ($('#total_roof_area').is(':checked')) {
+    
         if ($('#sq_m_rad_btn').is(':checked')) {
             plantSizeKW = $('#roof_area_txt').val() / 10;
         } else if ($('#sq_f_rad_btn').is(':checked')) {
             plantSizeKW = $('#roof_area_txt').val() / 100;
         }
-    } else {
+  
+ } else {
         plantSizeKW = $('#capacity_txt').val();
     }
     
