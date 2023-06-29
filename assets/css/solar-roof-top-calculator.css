@@ -5,6 +5,7 @@
   background: #ffffff;
   padding: 30px 25px;
   border-radius: 4px;
+  font-family: "Montserrat", Sans-serif;
 }
 
 .solar-cal-row {
@@ -15,7 +16,7 @@
 }
 
 .solar-cal-row #frm,
-#result .tbl.output_tbl,.solar-full-width{
+#result .tbl.output_tbl, .solar-full-width {
   width: 100%;
 }
 
@@ -36,6 +37,8 @@ label.error:not(:empty) {
   color: #f00;
   width: 100%;
   padding-left: 10px;
+  display: block;
+  margin-top: 5px;
 }
 
 input.error {
@@ -64,7 +67,7 @@ select.error {
 .modal {
   top: 10vh;
   max-width: 900px;
-  height: 80vh;
+  max-height: 80vh;
   left: 10vh;
   right: 10vh;
   display: none;
@@ -77,6 +80,7 @@ select.error {
   animation-name: fadeIn_Modal;
   animation-duration: 0.8s;
   padding: 20px;
+  font-family: "Montserrat", Sans-serif;
   overflow-x: hidden;
   overflow-y: auto;
   outline: 0;
@@ -85,7 +89,7 @@ select.error {
 .modal-header {
   width: 100%;
   border-radius: 10px 10px 0px 0px;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #dee2e6;
 }
 
 .modal-header h2 {
@@ -111,7 +115,7 @@ select.error {
 }
 
 .modal-content {
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
 
@@ -153,7 +157,8 @@ select.error {
 }
 
 
-#calculation_type, #state, #electricity_txt, #calculation_type, #capacity_txt {
+#calculation_type, #state, #electricity_txt, #calculation_type, #capacity_txt, #roof_area_txt {
+  font-family: "Montserrat", Sans-serif;
   background-color: #fff;
   width: 100%;
   border: 1px solid #000;
@@ -161,22 +166,24 @@ select.error {
   padding: 10px 6px;
 }
 
-#calculation_type:focus-visible, #state:focus-visible, #electricity_txt:focus-visible, #calculation_type:focus-visible, #capacity_txt:focus-visible {
-  outline-width: 0;
-  border-width: 2px;
+#calculation_type:focus-visible, #state:focus-visible, #electricity_txt:focus-visible, #calculation_type:focus-visible, #capacity_txt:focus-visible, #roof_area_txt:focus-visible {
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, .25);
 }
 
-.solar-calculator input#electricity_txt::placeholder ,#calculation_type, #state, #electricity_txt, #calculation_type, #capacity_txt{
+
+.solar-calculator input#electricity_txt::placeholder, #calculation_type, #state, #electricity_txt, #calculation_type, #capacity_txt {
   color: rgb(0, 0, 0);
 }
 
-.solar-capacity {
+.solar-capacity, .roof_area_unit {
   display: flex;
 }
 
 .solar-capacity_unit {
   padding: 10px 12px;
-  background-color: #ddd;
+  background-color: #e9ecef;
   font-weight: 600;
 }
 
@@ -192,11 +199,57 @@ select.error {
   width: calc(50% - 10px);
 }
 
+.modal td.column_2, td.modal .column_1 {
+  width: 50%;
+}
+
+.modal td.column_1 {
+  background: #f1f1f1;
+  text-align: left;
+  vertical-align: top;
+  padding-right: 15;
+}
+
+.modal td.right_div_column_2, .modal .column_2 {
+  background: #e4e4e4;
+  text-align: left;
+  vertical-align: top;
+  width: 100px;
+  padding-left: 15px;
+}
+
+.modal #result .disclaimer {
+  margin: 10px 0px;
+  padding: 5px;
+
+}
+
+.modal .tbl {
+  border: 1px solid #e4e4e4;
+}
+
+.input-group-append {
+  padding: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  background-color: #e9ecef;
+  min-width: 190px;
+  border-radius: 0 3px 3px 0px;
+}
+
+
 @media screen and (min-width:800px) {
   .modal {
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     left: 50%;
     transform: translateX(-50%);
+  }
+  
+  .modal td.right_div_column_2{
+    width: 150px
   }
 }
 
@@ -204,28 +257,6 @@ select.error {
   .solar-half-cnt-width {
     width: 100%;
   }
-}
-.modal td.column_2,td.modal .column_1{
-  width: 50%;
-}
-.modal td.column_1 {
-  background: #f1f1f1;
-  text-align: left;
-  vertical-align: top;
-}
-.modal td.right_div_column_2 ,.modal .column_2{
-  background: #e4e4e4;
-  text-align: left;
-  vertical-align: top;
-  width: 200px;
-  padding-left: 15px;
-}
 
-.modal #result .disclaimer{
-  margin: 0;
-  padding: 5px;
 
-}
-.modal .tbl{
-  border: 1px solid #e4e4e4;
 }

@@ -55,7 +55,27 @@ function calculateData() {
     co2emisRed25Year = plantSizeKW * co2emisYear * 25;
     totTreePlant = tree25YearKw * plantSizeKW;
     
-    $("#output_state").text($('#state').val());
+    var state_val =$('#state').val();
+    var irradiation_val='';
+    if(state_val == 'JK')
+    {
+        irradiation_val ="is 1738  W / sq.m";
+    }
+    
+    else if(state_val == 'PB')
+    {
+        irradiation_val ="is 1702  W / sq.m";
+    }
+    else if(state_val == 'HR')
+    {
+        irradiation_val ="is 1702  W / sq.m";
+    }
+    else if(state_val =='UK')
+    {
+        irradiation_val ="is 1738  W / sq.m";
+    } 
+    $("#state_irradiation").text(irradiation_val);
+    $("#output_state").text($('#state option:selected').text());
     $("#output_size span").text(plantSizeKW);
     $("#bench_cost").text(plantCost);
     $("#output_electricity_annual").text(Math.round(totEleGenYear));
