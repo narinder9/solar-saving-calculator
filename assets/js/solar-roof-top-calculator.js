@@ -91,27 +91,16 @@ function calculateData() {
 $(document).ready(function() {
 
     
-const roof_area_select = function(target){
+const calculation_type_select = function(target){
     const panel_based_on = $('#calculation_type').find(":selected").val();
-    
-    console.log("a ="+panel_based_on);
-    if (panel_based_on == "total_roof_area"){
+   
+    if (panel_based_on == "total_roof_area" || panel_based_on == "panel_capacity"){
        return true;
     } 
 
     return false;
 }
-const panel_capacity_select = function(target){
-    const panel_based_on = $('#calculation_type').find(":selected").val();
-    console.log("a ="+panel_based_on);
-    if (panel_based_on == "panel_capacity" ){
-       return true;
-    } 
-
-    return false;
-}
-
-    jQuery("#frm").validate({
+jQuery("#solor_form").validate({
      
         rules: {
             calculation_type:
@@ -120,20 +109,14 @@ const panel_capacity_select = function(target){
             },
             roof_area_txt:{
                 required:true,
-            //     required:function(element) {
-            //         return $('#calculation_type').find(":selected").val() == 'total_roof_area';
-            //   },
                 number: true,
-                depends:roof_area_select(),
+                depends:calculation_type_select(),
             } ,
             capacity_txt: 
             {
                 required:true,
-            //     required:function(element) {
-            //         return $('#calculation_type').find(":selected").val() == 'panel_capacity';
-            //   },
                 number: true,
-                depends:panel_capacity_select(),
+                depends:calculation_type_select(),
             },
             electricity_txt: {
                required: true,
@@ -141,6 +124,9 @@ const panel_capacity_select = function(target){
            },
         },
         messages: {
+            calculation_type:{
+                required: 'Please select one option'  
+            },
             roof_area_txt:
             {
                 required:'Please enter valid value'
@@ -148,8 +134,12 @@ const panel_capacity_select = function(target){
             capacity_txt: {
                 required:'Please enter valid value'
             }, 
+            state:{
+                required:'Please select one state'
+            },
             electricity_txt:{
-                required:'Please enter valid value'
+                required:'Please enter valid cost',
+                number:'Please enter valid cost'
             } 
          },
         //  errorElement : 'label',
