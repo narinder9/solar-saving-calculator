@@ -71,40 +71,40 @@ function calculateData() {
 $(document).ready(function() {
 
     
-// const roof_area_select = function(target){
-//     const panel_based_on = $('#calculation_type').find(":selected").val();
+const roof_area_select = function(target){
+    const panel_based_on = $('#calculation_type').find(":selected").val();
     
-//     console.log("a ="+panel_based_on);
-//     if (panel_based_on == "total_roof_area"){
-//        return true;
-//     } 
+    console.log("a ="+panel_based_on);
+    if (panel_based_on == "total_roof_area"){
+       return true;
+    } 
 
-//     return false;
-// }
-// const panel_capacity_select = function(target){
-//     const panel_based_on = $('#calculation_type').find(":selected").val();
-//     console.log("a ="+panel_based_on);
-//     if (panel_based_on == "panel_capacity" ){
-//        return true;
-//     } 
+    return false;
+}
+const panel_capacity_select = function(target){
+    const panel_based_on = $('#calculation_type').find(":selected").val();
+    console.log("a ="+panel_based_on);
+    if (panel_based_on == "panel_capacity" ){
+       return true;
+    } 
 
-//     return false;
-// }
+    return false;
+}
 
     jQuery("#frm").validate({
      
         rules: {
-            // calculation_type:
-            // {
-            //     required:true,
-            // },
+            calculation_type:
+            {
+                required:true,
+            },
             roof_area_txt:{
                 required:true,
             //     required:function(element) {
             //         return $('#calculation_type').find(":selected").val() == 'total_roof_area';
             //   },
                 number: true,
-                // depends:roof_area_select(),
+                depends:roof_area_select(),
             } ,
             capacity_txt: 
             {
@@ -113,7 +113,7 @@ $(document).ready(function() {
             //         return $('#calculation_type').find(":selected").val() == 'panel_capacity';
             //   },
                 number: true,
-                // depends:panel_capacity_select(),
+                depends:panel_capacity_select(),
             },
             electricity_txt: {
                required: true,
@@ -132,8 +132,8 @@ $(document).ready(function() {
                 required:'Please enter valid value'
             } 
          },
-         errorElement : 'label',
-         errorLabelContainer: '.errorTxt',
+        //  errorElement : 'label',
+        //  errorLabelContainer: '.errorTxt',
         
          submitHandler: function(form) {
             calculateData();

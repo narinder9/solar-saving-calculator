@@ -32,7 +32,7 @@ input#panel_capacity {
 }
 
 /* css for error */
-label.errorTxt:not(:empty) {
+label.error:not(:empty) {
   color: #f00;
   width: 100%;
   padding-left: 10px;
